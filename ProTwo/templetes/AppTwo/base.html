@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
+    <title></title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul>
+        <li><a href="{% url 'home' %}">Home page</a></li>
+        <li><a href="{% url 'AppTwo:users' %}">Sign Up</a></li>
+        <li><a href="{% url 'admin:index' %}">Admin Page(you can only login as admin)</a></li>
+
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'logout' %}">Log Out</a></li>
+        {% else %}
+         <li><a href="{% url 'AppTwo:user_login' %}">Log In</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% block block1 %}
+    {% endblock %}
+  </body>
+</html>

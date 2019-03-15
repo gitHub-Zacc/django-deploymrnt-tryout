@@ -1,0 +1,14 @@
+{% extends 'AppTwo/base.html' %}
+{% block block1 %}
+<h1>Log In</h1>
+<form action="{% url 'AppTwo:user_login' %}" method="post">
+  {% csrf_token %}
+  <label for="username">Username:</label>
+  <input type="text" name="username" palceholder="ExapmpleUsername">
+
+  <label for="password">Password:</label>
+  <input type="password" name="password">
+
+  <input type="submit" name="" value="Login">
+</form>
+{% endblock %}
